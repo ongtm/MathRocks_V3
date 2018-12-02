@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import com.example.tong.mathrocks_v3.model.MathTest;
 
+import java.util.ArrayList;
+
 public class DataSource {
     private Context mContext;
     private SQLiteDatabase mDatabase;
@@ -58,4 +60,34 @@ public class DataSource {
         return numOfRows;
     }
 
+    public ArrayList<MathTest> getMathTests() {
+        mDatabase = mDbHelper.getReadableDatabase();
+
+        Cursor cursor = mDatabase.query("tblMathTests", new String[]{"tblMathTests.column_testID, " +
+                "tblMathTests.column_testLevel, tblMathTests.column_testType, tblMathTests.column_totalQuestions, " +
+                "tblMathTests.column_totalCorrectQuestions, tblMathTests.column_totalIncorrectQuestions, tblMathTests.column_testDate"},null,null,null,null,null);
+
+        ArrayList<MathTest> mathTests = new ArrayList<>();
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+
+            do {
+                MathTest mathTest = new MathTest(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTID)),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTLEVEL))),
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTTYPE)),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALQUESTIONS))),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALCORRECTQUESTIONS))),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALINCORRECTQUESTONS))),
+                        Double.parseDouble(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTSCORE))),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTDATE))));
+
+                mathTests.add(mathTest);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return mathTests;
+    }
 }
