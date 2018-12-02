@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.example.tong.mathrocks_v3.custom_adapters.MyRecyclerViewAdapter;
+import com.example.tong.mathrocks_v3.custom_adapters.QuestionRecyclerAdapter;
 import com.example.tong.mathrocks_v3.database.DataSource;
 import com.example.tong.mathrocks_v3.model.Question;
 
@@ -27,14 +28,17 @@ public class QuestionSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_summary_recylcerview);
 
+        String getVal = getIntent().getStringExtra("testID");
+        String [] testID={getVal};
+
         mDataSource = new DataSource(this);
         mDataSource.open();
 
         if(mDataSource.isEmpty("tblQuestions")== false){
-            mQuestions = mDataSource.getQuestions();
+            mQuestions = mDataSource.getQuestions(testID);
 
             //Get items for recyclerview
-            MyRecyclerViewAdapter adapter = new MyRecyclerViewAdapter(this,mQuestions);
+            QuestionRecyclerAdapter adapter = new QuestionRecyclerAdapter(this,mQuestions);
             mRecyclerView = findViewById(R.id.test_recycler_view);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.setLayoutManager(mLayoutManager);

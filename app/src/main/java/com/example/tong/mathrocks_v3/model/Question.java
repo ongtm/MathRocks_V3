@@ -23,7 +23,7 @@ public class Question {
     }
 
     //Public standard constructor
-    public Question(String testID, int num1, int num2, String oper, int answer, int level, String correctStatus, String answeredStatus){
+    public Question(String testID, int num1, int num2, String oper, int answer, int resultEntered, int level, String correctStatus, String answeredStatus){
         this.testID = testID;
         this.num1 = num1;
         this.num2 = num2;

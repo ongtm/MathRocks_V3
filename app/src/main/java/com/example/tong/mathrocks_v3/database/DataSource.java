@@ -91,35 +91,38 @@ public class DataSource {
 
         return mathTests;
     }
-    public ArrayList<Question> getQuestions() {
+    public ArrayList<Question> getQuestions(String [] testID) {
         mDatabase = mDbHelper.getReadableDatabase();
 
-        Cursor cursor = mDatabase.query("tblQuestions", new String[]{"tblQuestions.column_testID, " +
-                "tblQuestions.column_testLevel, tblQuestions.column_testType, tblQuestions.column_totalQuestions, " +
-                "tblMathTests.column_totalCorrectQuestions, tblMathTests.column_totalIncorrectQuestions, tblMathTests.column_testScore, tblMathTests.column_testDate"},null,null,null,null,null);
+        Cursor cursor = mDatabase.query("tblQuestions", new String[]{"tblQuestions.column_testID, tblQuestions.column_num1, " +
+                "tblQuestions.column_num2, tblQuestions.column_oper, tblQuestions.column_answer, " +
+                "tblQuestions.column_resultEntered, tblQuestions.column_level, tblQuestions.column_correctStatus, tblQuestions.column_answeredStatus" }
+                ,"tblQuestions.column_testID",testID,null,null,null);
 
-        ArrayList<MathTest> mathTests = new ArrayList<>();
+        ArrayList<Question> questions = new ArrayList<>();
 
         if (cursor != null) {
             cursor.moveToFirst();
 
             do {
-                MathTest mathTest = new MathTest(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTID)),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTLEVEL))),
-                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTTYPE)),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALQUESTIONS))),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALCORRECTQUESTIONS))),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALINCORRECTQUESTONS))),
-                        Double.parseDouble(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTSCORE))),
-                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTDATE)));
+                Question question = new Question(
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_TESTID)),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_NUM1))),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_NUM2))),
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_OPER)),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_ANSWER))),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_RESULTENTERED))),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_LEVEL))),
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_CORRECTSTATUS)),
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_ANSWEREDSTATUS)));
 
-                mathTests.add(mathTest);
+                    questions.add(question);
             } while (cursor.moveToNext());
         }
 
         cursor.close();
 
-        return mathTests;
+        return questions;
     }
 
 }
