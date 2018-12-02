@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent2"
+    tools:context=".TestScreenActivity">
+
+    <TextView
+        android:id="@+id/tvnum1"
+        style="@style/my_textStyle1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/num1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvnum2"
+        style="@style/my_textStyle1"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/num2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvnum1" />
+
+    <TextView
+        android:id="@+id/tvoper"
+        style="@style/my_textStyle1"
+        android:layout_marginStart="100dp"
+        android:text="@string/oper"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvnum1" />
+
+
+    <EditText
+        android:id="@+id/etresult"
+        style="@style/my_textStyle1"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="@string/enter_your_answer"
+        android:inputType="number"
+        android:text="@string/result"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvnum2" />
+
+    <TextView
+        android:id="@+id/tvcorrectanswer"
+        style="@style/my_textStyle1"
+        android:layout_marginBottom="35dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/tvcorrectanswer"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/bnt_get_hint"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvcorrectanswertext"
+        style="@style/my_textStyle1"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tvcorrectanswertext"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etresult" />
+
+    <Button
+        android:id="@+id/bnt_checkanswer"
+        style="@style/myButtonStyle"
+        android:layout_marginEnd="29dp"
+        android:drawableStart="@drawable/ic_baseline_check_circle_24px"
+        android:onClick="onClickCheckAnswer"
+        android:text="@string/check_answer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/bnt_score_test"
+        style="@style/myButtonStyle"
+        android:text="@string/score_test"
+        android:onClick="onClickScoreTest"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="100dp"/>
+
+    <Button
+        android:id="@+id/bnt_get_hint"
+        style="@style/myButtonStyle"
+        android:layout_marginStart="29dp"
+        android:drawableStart="@drawable/ic_lightbulb_on"
+        android:onClick="onClickHint"
+        android:text="@string/get_hint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/bnt_next_question"
+        style="@style/myButtonStyle"
+        android:layout_width="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginTop="8dp"
+        android:drawableStart="@drawable/ic_arrow_right_box"
+        android:onClick="onClickNextQuestion"
+        android:text="@string/next_question"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bnt_previous_question"
+        style="@style/myButtonStyle"
+        android:layout_width="50dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="8dp"
+        android:drawableEnd="@drawable/ic_arrow_left_box"
+        android:onClick="onClickPreviousQuestion"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvnumcorrect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tvnumcorrect"
+        android:textColor="@android:color/holo_green_dark"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvtext1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/tvtext1"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvnumcorrect"
+        app:layout_constraintTop_toTopOf="@+id/tvnumcorrect" />
+
+    <TextView
+        android:id="@+id/tvtotalpossible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/tvtotalpossible"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvtext1"
+        app:layout_constraintTop_toTopOf="@+id/tvtext1" />
+
+    <TextView
+        android:id="@+id/testtype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/tvnumcorrect"
+        android:textColor="@android:color/holo_purple"
+        app:layout_constraintBottom_toTopOf="@+id/tvcorrectanswer"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--<ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="31dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <ListView
+        android:id="@+id/hintlist"
+        android:layout_width="100dp"
+        android:layout_height="300dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="32dp"
+        android:paddingBottom="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ListView>
+</android.support.constraint.ConstraintLayout>

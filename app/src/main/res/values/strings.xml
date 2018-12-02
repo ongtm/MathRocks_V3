@@ -1,3 +1,33 @@
 <resources>
-    <string name="app_name">MathRocks_V3</string>
+    <string name="app_name">MathRocks</string>
+    <string name="addition_problems_type_1">Addition Problems Type 1</string>
+    <string name="subtraction_problems_type_1">Subtraction Problems Type 1</string>
+    <string name="multiplication_problems_type_1">Multiplication Problems Type 1</string>
+    <string name="division_problems_type_1">Division Problems Type 1</string>
+
+
+    <string name="num1">1</string>
+    <string name="num2">2</string>
+    <string name="oper">+</string>
+    <string name="result"></string>
+    <string name="check_answer">Check Answer</string>
+    <string name="next_question"></string>
+    <string name="enter_your_answer">Enter answer</string>
+    <string name="tvcorrectanswer">3</string>
+    <string name="tvcorrectanswertext">The correct answer is </string>
+    <string name="get_hint">Get Hint</string>
+    <string name="tvlabeladd">Addition</string>
+    <string name="tvlabelsub">Subtraction</string>
+    <string name="tvlabelmul">Multiplication</string>
+    <string name="tvlabeldiv">Division</string>
+    <string name="tvnumcorrect">0</string>
+    <string name="tvtext1">OUT OF</string>
+    <string name="tvtotalpossible">2</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_score_summary">Score Summary</string>
+    <string name="menu_about">About</string>
+    <string name="tvlabellevel">Please select a level</string>
+    <string name="delete_scores">Delete score</string>
+    <string name="score_test">Score Test</string>
+
 </resources>

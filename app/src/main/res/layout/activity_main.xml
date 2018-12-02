@@ -5,6 +5,134 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <!--android:background="@color/colorAccent2">-->
+
+    <TextView
+        android:id="@+id/levelLabel"
+        style="@style/my_labelStyle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tvlabellevel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/imgadd1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/addition_problems_type_1"
+        android:src="@drawable/imgadd1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/levelLabel"
+        android:onClick="onClick"
+        app:srcCompat="@android:drawable/btn_default" />
+
+
+    <ImageButton
+        android:id="@+id/imgsub1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/subtraction_problems_type_1"
+        android:src="@drawable/imgsub1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgadd1"
+        android:onClick="onClick"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/imgmul1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/multiplication_problems_type_1"
+        android:src="@drawable/imgmul1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgsub1"
+        android:onClick="onClick"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <ImageButton
+        android:id="@+id/imgdiv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/division_problems_type_1"
+        android:src="@drawable/imgdiv1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgmul1"
+        android:onClick="onClick"
+        app:srcCompat="@android:drawable/btn_default" />
+
+    <TextView
+        android:id="@+id/tvlabeladd"
+        style="@style/my_labelStyle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/tvlabeladd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgadd1" />
+
+    <TextView
+        android:id="@+id/tvlabelsub"
+        style="@style/my_labelStyle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tvlabelsub"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgsub1" />
+
+    <TextView
+        android:id="@+id/tvlabelmul"
+        style="@style/my_labelStyle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tvlabelmul"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgmul1" />
+
+    <TextView
+        android:id="@+id/tvlabeldiv"
+        style="@style/my_labelStyle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tvlabeldiv"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgdiv1" />
+
+    <Spinner
+        android:id="@+id/spinneradd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/levelLabel"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
 </android.support.constraint.ConstraintLayout>

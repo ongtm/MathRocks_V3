@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/menu_home"
+        app:showAsAction="always"
+        android:id="@+id/menu_home_child"
+        android:icon="@drawable/ic_home"/>
+    <item
+        android:title="@string/menu_score_summary"
+        app:showAsAction="never"
+        android:id="@+id/menu_scoreSummary_child"/>
+
+    <item
+        android:title="@string/menu_about"
+        app:showAsAction="never"
+        android:id="@+id/menu_about_child"/>
+
+</menu>
