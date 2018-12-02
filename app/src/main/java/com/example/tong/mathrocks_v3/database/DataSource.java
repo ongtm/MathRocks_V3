@@ -65,11 +65,11 @@ public class DataSource {
 
         Cursor cursor = mDatabase.query("tblMathTests", new String[]{"tblMathTests.column_testID, " +
                 "tblMathTests.column_testLevel, tblMathTests.column_testType, tblMathTests.column_totalQuestions, " +
-                "tblMathTests.column_totalCorrectQuestions, tblMathTests.column_totalIncorrectQuestions, tblMathTests.column_testDate"},null,null,null,null,null);
+                "tblMathTests.column_totalCorrectQuestions, tblMathTests.column_totalIncorrectQuestions, tblMathTests.column_testScore, tblMathTests.column_testDate"},null,null,null,null,null);
 
         ArrayList<MathTest> mathTests = new ArrayList<>();
 
-        if (cursor != null) {
+      if (cursor != null) {
             cursor.moveToFirst();
 
             do {
@@ -80,7 +80,7 @@ public class DataSource {
                         Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALCORRECTQUESTIONS))),
                         Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALINCORRECTQUESTONS))),
                         Double.parseDouble(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTSCORE))),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTDATE))));
+                        Double.parseDouble(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTDATE))));
 
                 mathTests.add(mathTest);
             } while (cursor.moveToNext());

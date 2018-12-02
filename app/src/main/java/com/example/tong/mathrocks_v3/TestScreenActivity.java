@@ -288,15 +288,21 @@ public class TestScreenActivity extends AppCompatActivity {
             mDataSource.onInsert(contentValues,"tblQuestions");
 
         }
+        String testID = listOfQuestions.get(mCurrentQuestion).getTestID();
+        int level = testLevel;
+        int testSize = listOfQuestions.size();
+        int mIncorrectQuestions = testSize - mCorrectQuestionCount;
+        int mScore = mCorrectQuestionCount/testSize;
+
 
         MathTest thisTest = new MathTest(
-                listOfQuestions.get(mCurrentQuestion).getTestID(),
-                testLevel,
+                testID,
+                level,
                 testType,
-                listOfQuestions.size(),
+                testSize,
                 mCorrectQuestionCount,
-                listOfQuestions.size()-mCorrectQuestionCount,
-                mCorrectQuestionCount/listOfQuestions.size(),
+                mIncorrectQuestions,
+                mScore,
                 System.currentTimeMillis());
 
         ContentValues contentValues;

@@ -15,7 +15,7 @@ public class MathTest {
     private int totalCorrectQuestions;
     private int totalIncorrectQuestions;
     private double testScore;
-    private long testDate;
+    private double testDate;
 
 
     //Public no argument constructor
@@ -23,7 +23,7 @@ public class MathTest {
 
     }
 
-    public MathTest(String testID,  int testLevel, String testType, int totalNumQuestions, int totalCorrectQuestions, int totalIncorrectQuestions, double testScore, long testDate){
+    public MathTest(String testID,  int testLevel, String testType, int totalNumQuestions, int totalCorrectQuestions, int totalIncorrectQuestions, double testScore, double testDate){
 
         if(testID == null){
             this.testID = UUID.randomUUID().toString();
@@ -79,11 +79,11 @@ public class MathTest {
         this.testScore = testScore;
     }
 
-    public long getTestDate() {
+    public double getTestDate() {
         return testDate;
     }
 
-    public void setTestDate(long testDate) {
+    public void setTestDate(double testDate) {
         this.testDate = testDate;
     }
 

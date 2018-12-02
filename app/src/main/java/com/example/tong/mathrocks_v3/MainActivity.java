@@ -14,8 +14,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.tong.mathrocks_v3.database.DataSource;
+import com.example.tong.mathrocks_v3.model.MathTest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
 
@@ -32,7 +34,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Setting up database
         mDataSource = new DataSource(this);
         mDataSource.open();
-        Toast.makeText(this,"I have " + mDataSource.getRecordCount("tblMathTests") + " number of tests", Toast.LENGTH_SHORT).show();
+        /*List<MathTest> mathTest = new ArrayList<>();
+        mathTest = mDataSource.getMathTests();
+        Toast.makeText(this,"Math Test fields: Test ID " + mathTest.get(0).getTestID() +
+                " testLevel " + mathTest.get(0).getTestLevel() +
+                " testType " + mathTest.get(0).getTestType() +
+                " numberOfQuestions " + mathTest.get(0).getTotalNumQuestions() +
+                " numCorrectQuestions " + mathTest.get(0).getTotalCorrectQuestions() +
+                " numIncorrectQuestions " + mathTest.get(0).getTotalIncorrectQuestions() +
+                " testScore " + mathTest.get(0).getTestScore() +
+                " testDate " + mathTest.get(0).getTestDate(), Toast.LENGTH_LONG).show();*/
 
 
         //Assign Spinners objects by ID

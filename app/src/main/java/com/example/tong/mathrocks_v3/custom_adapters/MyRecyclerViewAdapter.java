@@ -25,28 +25,28 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     public static class MyRecyclerViewHolder extends RecyclerView.ViewHolder{
         //public View mView;
-        public TextView testId;
-        public TextView testLevel;
-        public TextView testType;
-        public TextView numQuestions;
-        public TextView numCorrect;
-        public TextView numIncorrect;
-        public TextView testScore;
-        public TextView testDate;
+        public TextView mtestId;
+        public TextView mtestLevel;
+        public TextView mtestType;
+        public TextView mnumQuestions;
+        public TextView mnumCorrect;
+        public TextView mnumIncorrect;
+        public TextView mtestScore;
+        public TextView mtestDate;
 
 
 
         public MyRecyclerViewHolder(View testView){
             super(testView);
 
-            testId = testView.findViewById(R.id.testId);
-            testLevel = testView.findViewById(R.id.testLevel);
-            testType = testView.findViewById(R.id.testType);
-            numQuestions = testView.findViewById(R.id.numQuestions);
-            numCorrect = testView.findViewById(R.id.numCorrect);
-            numIncorrect = testView.findViewById(R.id.numIncorrect);
-            testScore= testView.findViewById(R.id.testScore);
-            testDate = testView.findViewById(R.id.testDate);
+            mtestId = testView.findViewById(R.id.rv_testId);
+            mtestLevel = testView.findViewById(R.id.rv_testLevel);
+            mtestType = testView.findViewById(R.id.rv_testType);
+            mnumQuestions = testView.findViewById(R.id.rv_numQuestions);
+            mnumCorrect = testView.findViewById(R.id.rv_numCorrect);
+            mnumIncorrect = testView.findViewById(R.id.rv_numIncorrect);
+            mtestScore= testView.findViewById(R.id.rv_testScore);
+            mtestDate = testView.findViewById(R.id.rv_testDate);
         }
     }
 
@@ -69,14 +69,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
         MathTest myMathTest = mMathTest.get(position);
 
-        holder.testId.setText(myMathTest.getTestID());
-        holder.testLevel.setText(myMathTest.getTestLevel());
-        holder.testType.setText(myMathTest.getTestType());
-        holder.numQuestions.setText(myMathTest.getTotalNumQuestions());
-        holder.numCorrect.setText(String.valueOf(myMathTest.getTotalCorrectQuestions()));
-        holder.numIncorrect.setText(String.valueOf(myMathTest.getTotalIncorrectQuestions()));
-        holder.testScore.setText(String.valueOf(myMathTest.getTestScore()));
-        holder.testDate.setText(String.valueOf(myMathTest.getTestDate()));
+        holder.mtestId.setText(myMathTest.getTestID());
+        holder.mtestLevel.setText(String.valueOf(myMathTest.getTestLevel()));
+        holder.mtestType.setText(myMathTest.getTestType());
+        holder.mnumQuestions.setText(String.valueOf(myMathTest.getTotalNumQuestions()));
+        holder.mnumCorrect.setText(String.valueOf(myMathTest.getTotalCorrectQuestions()));
+        holder.mnumIncorrect.setText(String.valueOf(myMathTest.getTotalIncorrectQuestions()));
+        holder.mtestScore.setText(String.valueOf(myMathTest.getTestScore()));
+        holder.mtestDate.setText(String.valueOf(myMathTest.getTestDate()));
 
     }
 

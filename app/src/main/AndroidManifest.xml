@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TestScreenActivity"/>
+        <activity android:name=".TestSummaryActivity"/>
     </application>
 
 </manifest>

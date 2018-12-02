@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.tong.mathrocks_v3.custom_adapters.MyRecyclerViewAdapter;
 import com.example.tong.mathrocks_v3.database.DataSource;
@@ -25,7 +27,6 @@ public class TestSummaryActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_test_summary_recyclerview);
 
         //Open Database link
@@ -43,6 +44,8 @@ public class TestSummaryActivity extends AppCompatActivity {
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(adapter);
         }
+
+
         /*super.onCreate(savedInstanceState);
 
 
@@ -63,6 +66,10 @@ public class TestSummaryActivity extends AppCompatActivity {
         //mAdapter = new MyAdapter(myDataset);
 
         mRecyclerView.setAdapter(recyclerViewAdapter);*/
+
+    }
+
+    public void onClickDeleteItem(View view){
 
     }
 }

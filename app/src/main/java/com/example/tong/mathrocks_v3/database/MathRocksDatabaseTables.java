@@ -48,7 +48,7 @@ public class MathRocksDatabaseTables {
                     COLUMN_MATHTEST_TOTALCORRECTQUESTIONS + " INTEGER, " +
                     COLUMN_MATHTEST_TOTALINCORRECTQUESTONS + " INTEGER, " +
                     COLUMN_MATHTEST_TESTSCORE + " DOUBLE, " +
-                    COLUMN_MATHTEST_TESTDATE + " INTEGER" + ");";
+                    COLUMN_MATHTEST_TESTDATE + " DOUBLE" + ");";
 
     public static final String SQL_DELETE_MATHTESTS_TABLE = "DROP TABLE " + TABLE_MATHTESTS;
 }
