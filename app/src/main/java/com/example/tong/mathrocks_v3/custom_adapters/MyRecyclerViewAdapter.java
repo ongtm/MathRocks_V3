@@ -76,7 +76,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.mnumCorrect.setText(String.valueOf(myMathTest.getTotalCorrectQuestions()));
         holder.mnumIncorrect.setText(String.valueOf(myMathTest.getTotalIncorrectQuestions()));
         holder.mtestScore.setText(String.valueOf(myMathTest.getTestScore()));
-        holder.mtestDate.setText(String.valueOf(myMathTest.getTestDate()));
+        holder.mtestDate.setText(myMathTest.getTestDate());
 
     }
 

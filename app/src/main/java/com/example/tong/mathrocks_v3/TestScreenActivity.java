@@ -16,8 +16,13 @@ import com.example.tong.mathrocks_v3.database.DataSource;
 import com.example.tong.mathrocks_v3.model.MathTest;
 import com.example.tong.mathrocks_v3.model.Question;
 
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -292,7 +297,13 @@ public class TestScreenActivity extends AppCompatActivity {
         int level = testLevel;
         int testSize = listOfQuestions.size();
         int mIncorrectQuestions = testSize - mCorrectQuestionCount;
-        int mScore = mCorrectQuestionCount/testSize;
+        //double dCorrectQuestions = Double.valueOf(mCorrectQuestionCount);
+        double mScore = Math.round(((Double.valueOf(mCorrectQuestionCount)/Double.valueOf(testSize))*100));
+        Date thisDate = new Date();
+        String timeStamp = thisDate.toString();
+
+
+
 
 
         MathTest thisTest = new MathTest(
@@ -303,7 +314,7 @@ public class TestScreenActivity extends AppCompatActivity {
                 mCorrectQuestionCount,
                 mIncorrectQuestions,
                 mScore,
-                System.currentTimeMillis());
+                timeStamp);
 
         ContentValues contentValues;
         contentValues = thisTest.mathTestToValues();

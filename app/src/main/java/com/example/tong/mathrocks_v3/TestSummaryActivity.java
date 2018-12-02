@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tong.mathrocks_v3.custom_adapters.MyRecyclerViewAdapter;
 import com.example.tong.mathrocks_v3.database.DataSource;
@@ -44,32 +45,9 @@ public class TestSummaryActivity extends AppCompatActivity {
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(adapter);
         }
-
-
-        /*super.onCreate(savedInstanceState);
-
-
-        setContentView(R.layout.activity_test_summary_recyclerview);
-
-        MyRecyclerViewAdapter recyclerViewAdapter = new MyRecyclerViewAdapter(this,mMathTestList);
-
-        //Recycler View
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-
-        //Setting for keeping layout size the same regardless of content
-        //mRecyclerView.setHasFixedSize(true);
-
-        //using linear layout manager
-        mLayoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        //mAdapter = new MyAdapter(myDataset);
-
-        mRecyclerView.setAdapter(recyclerViewAdapter);*/
-
     }
 
     public void onClickDeleteItem(View view){
-
+        Toast.makeText(this,"I work!",Toast.LENGTH_SHORT).show();
     }
 }

@@ -80,7 +80,7 @@ public class DataSource {
                         Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALCORRECTQUESTIONS))),
                         Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALINCORRECTQUESTONS))),
                         Double.parseDouble(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTSCORE))),
-                        Double.parseDouble(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTDATE))));
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTDATE)));
 
                 mathTests.add(mathTest);
             } while (cursor.moveToNext());
