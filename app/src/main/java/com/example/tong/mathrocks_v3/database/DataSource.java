@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 
 import com.example.tong.mathrocks_v3.model.MathTest;
+import com.example.tong.mathrocks_v3.model.Question;
 
 import java.util.ArrayList;
 
@@ -90,4 +91,35 @@ public class DataSource {
 
         return mathTests;
     }
+    public ArrayList<Question> getQuestions() {
+        mDatabase = mDbHelper.getReadableDatabase();
+
+        Cursor cursor = mDatabase.query("tblQuestions", new String[]{"tblQuestions.column_testID, " +
+                "tblQuestions.column_testLevel, tblQuestions.column_testType, tblQuestions.column_totalQuestions, " +
+                "tblMathTests.column_totalCorrectQuestions, tblMathTests.column_totalIncorrectQuestions, tblMathTests.column_testScore, tblMathTests.column_testDate"},null,null,null,null,null);
+
+        ArrayList<MathTest> mathTests = new ArrayList<>();
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+
+            do {
+                MathTest mathTest = new MathTest(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTID)),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTLEVEL))),
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTTYPE)),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALQUESTIONS))),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALCORRECTQUESTIONS))),
+                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALINCORRECTQUESTONS))),
+                        Double.parseDouble(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTSCORE))),
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTDATE)));
+
+                mathTests.add(mathTest);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+
+        return mathTests;
+    }
+
 }

@@ -1,12 +1,17 @@
 package com.example.tong.mathrocks_v3.custom_adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+
+import com.example.tong.mathrocks_v3.QuestionSummaryActivity;
 import com.example.tong.mathrocks_v3.R;
 import com.example.tong.mathrocks_v3.model.MathTest;
 
@@ -33,8 +38,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         public TextView mnumIncorrect;
         public TextView mtestScore;
         public TextView mtestDate;
-
-
+        public ImageButton mDeleteButton;
+        public ImageButton mViewButton;
 
         public MyRecyclerViewHolder(View testView){
             super(testView);
@@ -47,6 +52,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             mnumIncorrect = testView.findViewById(R.id.rv_numIncorrect);
             mtestScore= testView.findViewById(R.id.rv_testScore);
             mtestDate = testView.findViewById(R.id.rv_testDate);
+            mDeleteButton = testView.findViewById(R.id.rv_deleteImageButton);
+            mViewButton = testView.findViewById(R.id.rv_viewImageButton);
         }
     }
 
@@ -65,7 +72,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
     @Override
-    public void onBindViewHolder(MyRecyclerViewHolder holder, int position){
+    public void onBindViewHolder(MyRecyclerViewHolder holder, final int position){
 
         MathTest myMathTest = mMathTest.get(position);
 
@@ -78,6 +85,21 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.mtestScore.setText(String.valueOf(myMathTest.getTestScore()));
         holder.mtestDate.setText(myMathTest.getTestDate());
 
+        holder.mDeleteButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+        });
+
+        holder.mViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, QuestionSummaryActivity.class);
+                intent.putExtra("testID",mMathTest.get(position).getTestID());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override

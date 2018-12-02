@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">-->
 
 
+
         <TextView
             android:id="@+id/rv_testId"
             android:layout_width="0dp"
@@ -147,7 +148,16 @@
 
 
     <!--</LinearLayout>-->
-
+    <ImageButton
+        android:id="@+id/rv_viewImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/view_questions"
+        app:layout_constraintBottom_toTopOf="@+id/rv_deleteImageButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_poll_black_24dp" />
 
     <ImageButton
         android:id="@+id/rv_deleteImageButton"

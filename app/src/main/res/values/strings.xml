@@ -36,5 +36,7 @@
     <string name="total_number_of_incorrect_questions_label">Total Number of Incorrect Questions</string>
     <string name="test_score_label">Test Score</string>
     <string name="test_date_label">Test Date</string>
+    <string name="view_questions">View Questions</string>
+    <string name="question_number">Question</string>
 
 </resources>
