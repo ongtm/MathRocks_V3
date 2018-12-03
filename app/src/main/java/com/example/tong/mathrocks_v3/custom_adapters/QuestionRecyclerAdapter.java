@@ -50,9 +50,9 @@ public class QuestionRecyclerAdapter extends RecyclerView.Adapter<QuestionRecycl
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
-        View testView = inflater.inflate(R.layout.activity_question_summary, parent, false);
+        View questionView = inflater.inflate(R.layout.activity_question_summary, parent, false);
 
-        QuestionRecyclerViewHolder questionRecyclerViewHolder = new QuestionRecyclerViewHolder(testView);
+        QuestionRecyclerViewHolder questionRecyclerViewHolder = new QuestionRecyclerViewHolder(questionView);
 
         return questionRecyclerViewHolder;
     }

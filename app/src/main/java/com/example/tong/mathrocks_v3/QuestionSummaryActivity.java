@@ -35,16 +35,17 @@ public class QuestionSummaryActivity extends AppCompatActivity {
         mDataSource.open();
 
         if(mDataSource.isEmpty("tblQuestions")== false){
+
             mQuestions = mDataSource.getQuestions(testID);
 
             //Get items for recyclerview
             QuestionRecyclerAdapter adapter = new QuestionRecyclerAdapter(this,mQuestions);
-            mRecyclerView = findViewById(R.id.test_recycler_view);
+            mRecyclerView = findViewById(R.id.question_recycler_view);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(adapter);
         }
-
-        Toast.makeText(this,"this test id is " + getIntent().getStringExtra("testID"),Toast.LENGTH_SHORT).show();
+        String tb = testID[0];
+        Toast.makeText(this,"Number of itemsin list " + mQuestions.size() ,Toast.LENGTH_SHORT).show();
     }
 }

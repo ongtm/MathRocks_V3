@@ -14,6 +14,8 @@ import com.example.tong.mathrocks_v3.model.Question;
 
 import java.util.ArrayList;
 
+import static com.example.tong.mathrocks_v3.database.MathRocksDatabaseTables.TABLE_QUESTIONS;
+
 public class DataSource {
     private Context mContext;
     private SQLiteDatabase mDatabase;
@@ -97,8 +99,10 @@ public class DataSource {
         Cursor cursor = mDatabase.query("tblQuestions", new String[]{"tblQuestions.column_testID, tblQuestions.column_num1, " +
                 "tblQuestions.column_num2, tblQuestions.column_oper, tblQuestions.column_answer, " +
                 "tblQuestions.column_resultEntered, tblQuestions.column_level, tblQuestions.column_correctStatus, tblQuestions.column_answeredStatus" }
-                ,"tblQuestions.column_testID",testID,null,null,null);
-
+                ,null,null,null,null,null);
+        //String query = "select * from "+ TABLE_QUESTIONS + " where column_testID =?";
+        //String query ="SELECT * FROM tblQuestions ";//WHERE column_testID = ?";
+        //Cursor cursor = mDatabase.rawQuery(query, null);
         ArrayList<Question> questions = new ArrayList<>();
 
         if (cursor != null) {

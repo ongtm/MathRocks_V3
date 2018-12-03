@@ -35,6 +35,18 @@ public class Question {
         this.answeredStatus = answeredStatus;
     }
 
+    public Question(String testID, int num1, int num2, String oper, int answer, int level, String correctStatus, String answeredStatus){
+        this.testID = testID;
+        this.num1 = num1;
+        this.num2 = num2;
+        this.oper = oper;
+        this.answer = answer;
+        this.resultEntered = resultEntered;
+        this.level = level;
+        this.correctStatus = correctStatus;
+        this.answeredStatus = answeredStatus;
+    }
+
     public String getTestID() {
         return testID;
     }
