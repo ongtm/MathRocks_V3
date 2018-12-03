@@ -29,7 +29,7 @@ public class QuestionSummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_question_summary_recylcerview);
 
         String getVal = getIntent().getStringExtra("testID");
-        String [] testID={getVal};
+        String testID=getVal;
 
         mDataSource = new DataSource(this);
         mDataSource.open();
@@ -45,7 +45,7 @@ public class QuestionSummaryActivity extends AppCompatActivity {
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(adapter);
         }
-        String tb = testID[0];
-        Toast.makeText(this,"Number of itemsin list " + mQuestions.size() ,Toast.LENGTH_SHORT).show();
+        //String tb = testID[0];
+        Toast.makeText(this,"Number of items in list " + mQuestions.size() ,Toast.LENGTH_SHORT).show();
     }
 }

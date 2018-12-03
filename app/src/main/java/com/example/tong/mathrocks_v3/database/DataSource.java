@@ -93,13 +93,13 @@ public class DataSource {
 
         return mathTests;
     }
-    public ArrayList<Question> getQuestions(String [] testID) {
+    public ArrayList<Question> getQuestions(String testID) {
         mDatabase = mDbHelper.getReadableDatabase();
 
-        Cursor cursor = mDatabase.query("tblQuestions", new String[]{"tblQuestions.column_testID, tblQuestions.column_num1, " +
+        Cursor cursor = mDatabase.query(MathRocksDatabaseTables.TABLE_QUESTIONS, new String[]{"tblQuestions.column_testID, tblQuestions.column_num1, " +
                 "tblQuestions.column_num2, tblQuestions.column_oper, tblQuestions.column_answer, " +
                 "tblQuestions.column_resultEntered, tblQuestions.column_level, tblQuestions.column_correctStatus, tblQuestions.column_answeredStatus" }
-                ,null,null,null,null,null);
+            ,MathRocksDatabaseTables.COLUMN_QUESTION_TESTID + " = '" + testID + "'",null,null,null,null);
         //String query = "select * from "+ TABLE_QUESTIONS + " where column_testID =?";
         //String query ="SELECT * FROM tblQuestions ";//WHERE column_testID = ?";
         //Cursor cursor = mDatabase.rawQuery(query, null);
