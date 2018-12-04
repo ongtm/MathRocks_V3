@@ -65,7 +65,7 @@ public class QuestionRecyclerAdapter extends RecyclerView.Adapter<QuestionRecycl
 
         //holder.mtestId.setText(myMathTest.getTestID());
         //holder.mtestLevel.setText(String.valueOf(myMathTest.getTestLevel()));
-        holder.mQuestionLabel.setText(myQuestion.getTestID());
+        holder.mQuestionLabel.setText("Question Level " + myQuestion.getLevel());
 
         String concatString = String.valueOf(myQuestion.getNum1()) + " " + myQuestion.getOper() + " " + String.valueOf(myQuestion.getNum2()) + " = " + String.valueOf(myQuestion.getAnswer());
         holder.mQuestionString.setText(concatString);

@@ -97,7 +97,7 @@ public class TestScreenActivity extends AppCompatActivity {
     }
     private void getTestQuestions(String testType, int level){
         //method creates new test and gets random questions based on testType and testLevel
-        String testID = UUID.randomUUID().toString();
+        String testID = toString().valueOf(System.currentTimeMillis());
         GetTestQuestions getTestQuestions = new GetTestQuestions();
 
         switch (level){
@@ -293,6 +293,7 @@ public class TestScreenActivity extends AppCompatActivity {
             mDataSource.onInsert(contentValues,"tblQuestions");
 
         }
+
         String testID = listOfQuestions.get(mCurrentQuestion).getTestID();
         int level = testLevel;
         int testSize = listOfQuestions.size();

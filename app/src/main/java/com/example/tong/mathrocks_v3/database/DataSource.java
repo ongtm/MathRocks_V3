@@ -72,11 +72,12 @@ public class DataSource {
 
         ArrayList<MathTest> mathTests = new ArrayList<>();
 
-      if (cursor != null) {
+      if (cursor != null & cursor.getCount()>0) {
             cursor.moveToFirst();
 
             do {
-                MathTest mathTest = new MathTest(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTID)),
+                MathTest mathTest = new MathTest(
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTID)),
                         Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTLEVEL))),
                         cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TESTTYPE)),
                         Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_MATHTEST_TOTALQUESTIONS))),
@@ -96,31 +97,34 @@ public class DataSource {
     public ArrayList<Question> getQuestions(String testID) {
         mDatabase = mDbHelper.getReadableDatabase();
 
-        Cursor cursor = mDatabase.query(MathRocksDatabaseTables.TABLE_QUESTIONS, new String[]{"tblQuestions.column_testID, tblQuestions.column_num1, " +
-                "tblQuestions.column_num2, tblQuestions.column_oper, tblQuestions.column_answer, " +
-                "tblQuestions.column_resultEntered, tblQuestions.column_level, tblQuestions.column_correctStatus, tblQuestions.column_answeredStatus" }
-            ,MathRocksDatabaseTables.COLUMN_QUESTION_TESTID + " = '" + testID + "'",null,null,null,null);
-        //String query = "select * from "+ TABLE_QUESTIONS + " where column_testID =?";
-        //String query ="SELECT * FROM tblQuestions ";//WHERE column_testID = ?";
-        //Cursor cursor = mDatabase.rawQuery(query, null);
+        String [] cols= {"tblQuestions.column_testID, tblQuestions.column_num1, tblQuestions.column_num2, tblQuestions.column_oper, tblQuestions.column_answer,tblQuestions.column_resultEntered, tblQuestions.column_level, tblQuestions.column_correctStatus, tblQuestions.column_answeredStatus"};        //String [] columns = {MathRocksDatabaseTables.COLUMN_MATHTEST_TESTID, MathRocksDatabaseTables.COLUMN_QUESTION_NUM1,MathRocksDatabaseTables.COLUMN_QUESTION_NUM2, MathRocksDatabaseTables.COLUMN_QUESTION_OPER,MathRocksDatabaseTables.COLUMN_QUESTION_ANSWER, MathRocksDatabaseTables}
+
+        Cursor cursor = mDatabase.query(MathRocksDatabaseTables.TABLE_QUESTIONS,
+                cols, MathRocksDatabaseTables.COLUMN_MATHTEST_TESTID + "=?", new String[] {testID},null,null,null, null);
+        //String thisString = toString().valueOf(testID);
+        //Cursor cursor = mDatabase.rawQuery("SELECT * FROM tblQuestions",null);
+
         ArrayList<Question> questions = new ArrayList<>();
 
-        if (cursor != null) {
+        if (cursor != null & cursor.getCount() >0) {
             cursor.moveToFirst();
 
             do {
-                Question question = new Question(
-                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_TESTID)),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_NUM1))),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_NUM2))),
-                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_OPER)),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_ANSWER))),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_RESULTENTERED))),
-                        Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_LEVEL))),
-                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_CORRECTSTATUS)),
-                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_ANSWEREDSTATUS)));
+                /*String c = cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_TESTID));
+                if(c.equals(testID)){*/
+                    Question question = new Question(
+                            cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_TESTID)),
+                            Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_NUM1))),
+                            Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_NUM2))),
+                            cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_OPER)),
+                            Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_ANSWER))),
+                            Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_RESULTENTERED))),
+                            Integer.parseInt(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_LEVEL))),
+                            cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_CORRECTSTATUS)),
+                            cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_QUESTION_ANSWEREDSTATUS)));
 
                     questions.add(question);
+                //}
             } while (cursor.moveToNext());
         }
 

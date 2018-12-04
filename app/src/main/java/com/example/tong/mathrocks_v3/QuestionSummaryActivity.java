@@ -1,5 +1,8 @@
 package com.example.tong.mathrocks_v3;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +12,7 @@ import android.widget.Toast;
 import com.example.tong.mathrocks_v3.custom_adapters.MyRecyclerViewAdapter;
 import com.example.tong.mathrocks_v3.custom_adapters.QuestionRecyclerAdapter;
 import com.example.tong.mathrocks_v3.database.DataSource;
+import com.example.tong.mathrocks_v3.database.MathRocksDatabaseTables;
 import com.example.tong.mathrocks_v3.model.Question;
 
 import java.util.ArrayList;
@@ -23,16 +27,21 @@ public class QuestionSummaryActivity extends AppCompatActivity {
     private DataSource mDataSource;
     List<Question> mQuestions = new ArrayList<>();
 
+    private SQLiteDatabase mDatabase;
+    SQLiteOpenHelper mDbHelper;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_summary_recylcerview);
 
-        String getVal = getIntent().getStringExtra("testID");
-        String testID=getVal;
+        String testID = getIntent().getStringExtra("testID");
 
         mDataSource = new DataSource(this);
         mDataSource.open();
+
+//        mDatabase = mDbHelper.getReadableDatabase();
 
         if(mDataSource.isEmpty("tblQuestions")== false){
 
@@ -46,6 +55,6 @@ public class QuestionSummaryActivity extends AppCompatActivity {
             mRecyclerView.setAdapter(adapter);
         }
         //String tb = testID[0];
-        Toast.makeText(this,"Number of items in list " + mQuestions.size() ,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Number of items in list " + mQuestions.size() + " Long ID value " + testID,Toast.LENGTH_SHORT).show();
     }
 }

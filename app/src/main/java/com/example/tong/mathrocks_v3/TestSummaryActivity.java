@@ -47,10 +47,10 @@ public class TestSummaryActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickDeleteItem(View view){
+    /*public void onClickDeleteItem(View view){
         TextView testing;
-        testing= findViewById(R.id.rv_testId);
+        testing= findViewById(R.id.rv_testDate);
         Toast.makeText(this,"I work!" + testing.getText(),Toast.LENGTH_SHORT).show();
 
-    }
+    }*/
 }

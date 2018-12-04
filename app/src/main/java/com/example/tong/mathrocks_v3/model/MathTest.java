@@ -25,8 +25,11 @@ public class MathTest {
 
     public MathTest(String testID,  int testLevel, String testType, int totalNumQuestions, int totalCorrectQuestions, int totalIncorrectQuestions, double testScore, String testDate){
 
-        if(testID == null){
-            this.testID = UUID.randomUUID().toString();
+        if(testID == ""){
+            this.testID = toString().valueOf(System.currentTimeMillis());
+        }else
+        {
+            this.testID=testID;
         }
         this.testLevel = testLevel;
         this.testType = testType;

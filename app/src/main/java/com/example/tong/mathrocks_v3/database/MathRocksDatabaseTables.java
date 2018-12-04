@@ -41,9 +41,9 @@ public class MathRocksDatabaseTables {
 
     public static final String SQL_CREATE_MATHTESTS_TABLE =
             "CREATE TABLE " + TABLE_MATHTESTS + "( " +
-                    COLUMN_MATHTEST_TESTID + " TEXT PRIMARY KEY, " +
+                    COLUMN_MATHTEST_TESTID + " TEXT, " +
                     COLUMN_MATHTEST_TESTLEVEL + " INTEGER, " +
-                    COLUMN_MATHTEST_TESTTYPE + " TEXT , " +
+                    COLUMN_MATHTEST_TESTTYPE + " TEXT, " +
                     COLUMN_MATHTEST_TOTALQUESTIONS + " INTEGER, " +
                     COLUMN_MATHTEST_TOTALCORRECTQUESTIONS + " INTEGER, " +
                     COLUMN_MATHTEST_TOTALINCORRECTQUESTONS + " INTEGER, " +
