@@ -28,8 +28,9 @@
         android:id="@+id/question_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="stuff"
         app:layout_constraintTop_toTopOf="@+id/question_string_label"
-        app:layout_constraintStart_toStartOf="@+id/question_string_label"
+        app:layout_constraintStart_toEndOf="@+id/question_string_label"
         android:layout_marginStart="16dp"/>
 
     <TextView
@@ -46,8 +47,9 @@
         android:id="@+id/question_entered"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="stuff"
         app:layout_constraintTop_toTopOf="@+id/question_entered_label"
-        app:layout_constraintStart_toStartOf="@+id/question_entered_label"
+        app:layout_constraintStart_toEndOf="@+id/question_entered_label"
         android:layout_marginStart="16dp"
         />
     <TextView
