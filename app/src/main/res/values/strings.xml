@@ -21,7 +21,7 @@
     <string name="tvlabelmul">Multiplication</string>
     <string name="tvlabeldiv">Division</string>
     <string name="tvnumcorrect">0</string>
-    <string name="tvtext1">OUT OF</string>
+    <string name="tvtext1">CORRECT OUT OF</string>
     <string name="tvtotalpossible">2</string>
     <string name="menu_home">Home</string>
     <string name="menu_score_summary">Score Summary</string>
@@ -38,5 +38,6 @@
     <string name="test_date_label">Test Date</string>
     <string name="view_questions">View Questions</string>
     <string name="question_number">Question</string>
+    <string name="question">Question #</string>
 
 </resources>

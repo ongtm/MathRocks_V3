@@ -43,6 +43,8 @@ public class TestScreenActivity extends AppCompatActivity {
     private TextView mTextViewNumCorrectQuestions;
     private TextView mButtonScoreTest;
     private TextView mButtonCheckAnswer;
+    private TextView mTextViewQuestionNumber;
+    private TextView tvnumTotalQuestions;
 
     private int mCurrentQuestion = 0;
     private int mCorrectQuestionCount = 0;
@@ -71,8 +73,9 @@ public class TestScreenActivity extends AppCompatActivity {
         getTestQuestions(testType, testLevel);
 
         //Displays number of questions on screen
-        TextView tvnumTotalQuestions = findViewById(R.id.tvtotalpossible);
+        tvnumTotalQuestions = findViewById(R.id.tvtotalpossible);
         tvnumTotalQuestions.setText(Integer.toString(listOfQuestions.size()));
+        mTextViewQuestionNumber = findViewById(R.id.tvquestionNum);
 
 
         //Displays first question on screen
@@ -146,7 +149,7 @@ public class TestScreenActivity extends AppCompatActivity {
 
         mTextViewNumCorrectQuestions = findViewById(R.id.tvnumcorrect);
         mTextViewNumCorrectQuestions.setText(Integer.toString(mCorrectQuestionCount));
-
+        mTextViewQuestionNumber.setText("Question # " + mCurrentQuestion);
         //Hides views
         hideCorrectQuestionText();
     }
@@ -192,7 +195,7 @@ public class TestScreenActivity extends AppCompatActivity {
         }
         else{
             Toast.makeText(this,"There are no more questions.",Toast.LENGTH_SHORT).show();
-            if (mNumberQuestionsAnswered == 10){
+                mCurrentQuestion --;
                 mButtonScoreTest = findViewById(R.id.bnt_score_test);
                 mButtonScoreTest.setVisibility(View.VISIBLE);
                 mButtonCheckAnswer = findViewById(R.id.bnt_checkanswer);
@@ -200,7 +203,6 @@ public class TestScreenActivity extends AppCompatActivity {
 
             }
         }
-    }
 
     public void onClickPreviousQuestion(View view){
         //Method decrements question counter, generates new listing of hints and then updates view with new question
@@ -222,6 +224,7 @@ public class TestScreenActivity extends AppCompatActivity {
             UpdateQuestionTextView();
         }
         else{
+            mCurrentQuestion ++;
             Toast.makeText(this,"There are no more questions.",Toast.LENGTH_SHORT).show();
             if (mNumberQuestionsAnswered == 10){
                 mButtonScoreTest = findViewById(R.id.bnt_score_test);
