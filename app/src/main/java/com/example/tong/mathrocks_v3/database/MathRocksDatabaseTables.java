@@ -51,4 +51,18 @@ public class MathRocksDatabaseTables {
                     COLUMN_MATHTEST_TESTDATE + " TEXT" + ");";
 
     public static final String SQL_DELETE_MATHTESTS_TABLE = "DROP TABLE " + TABLE_MATHTESTS;
+
+    public static final String TABLE_FAQ = "tblFAQ";
+    public static final String COLUMN_FAQ_FAQID = "column_faqID";
+    public static final String COLUMN_FAQ_FAQQUESTION = "column_faqQuestion";
+    public static final String COLUMN_FAQ_FAQANSWER = "column_faqAnswer";
+
+    public static final String SQL_CREATE_FAQ_TABLE =
+            "CREATE TABLE " + TABLE_FAQ + "( " +
+                    COLUMN_FAQ_FAQID + " TEXT, " +
+                    COLUMN_FAQ_FAQQUESTION + " TEXT, " +
+                    COLUMN_FAQ_FAQANSWER + " TEXT" + ");";
+
+    public static final String SQL_DELETE_FAQ_TABLE = "DROP TABLE " + TABLE_FAQ;
+
 }

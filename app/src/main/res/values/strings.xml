@@ -40,4 +40,27 @@
     <string name="question_number">Question</string>
     <string name="question">Question #</string>
 
+    <string name="question1">How many questions are there in test?</string>
+    <string name="question2">How do I get a hint for a question?</string>
+    <string name="question3">What do the levels for the tests represent?</string>
+    <string name="question4">"How can I see the tests I have taken?</string>
+    <string name="question5">How do I view the questions for the tests I have taken?</string>
+    <string name="question6">I retake a test?</string>
+    <string name="question7">How do I delete a test?</string>
+
+    <string name="answer1">There are ten (10) questions in each test.</string>
+    <string name="answer2">Tap on the Get Hint button in the bottom left corner to view the hints for each question.</string>
+    <string name="answer3">The levels represent the difficulty of each test.  " +
+    "Level 1  questions are for the basic 0-12 addition/subtraction/multiplication/division.  " +
+    "Level 2 covers 0 - 20. " +
+    "Level 3 covers 0 - 100. " +
+    "Level 4 allows for the numbers being computed to be different lengths. " +
+    "The first number covers the range 0-1000 and the second number covers the range 0 - 100." +
+        "Level 5 covers 0 - 1000 "</string>
+    <string name="answer4">You can view the tests that you have taken by tapping on the menu bar and selecting Score Summary</string>
+    <string name="answer5">To view the questions for a taken test, tap on the Chart icon next to the test on the Test Summary screen.</string>
+    <string name="answer6">You can not retake tests at this time.</string>
+    <string name="answer7">A test can be deleted by taping on the Trash can icon next to the test on the Test Summary screen.</string>
+
+
 </resources>

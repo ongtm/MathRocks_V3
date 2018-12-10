@@ -34,17 +34,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Setting up database
         mDataSource = new DataSource(this);
         mDataSource.open();
-        /*List<MathTest> mathTest = new ArrayList<>();
-        mathTest = mDataSource.getMathTests();
-        Toast.makeText(this,"Math Test fields: Test ID " + mathTest.get(0).getTestID() +
-                " testLevel " + mathTest.get(0).getTestLevel() +
-                " testType " + mathTest.get(0).getTestType() +
-                " numberOfQuestions " + mathTest.get(0).getTotalNumQuestions() +
-                " numCorrectQuestions " + mathTest.get(0).getTotalCorrectQuestions() +
-                " numIncorrectQuestions " + mathTest.get(0).getTotalIncorrectQuestions() +
-                " testScore " + mathTest.get(0).getTestScore() +
-                " testDate " + mathTest.get(0).getTestDate(), Toast.LENGTH_LONG).show();*/
-
 
         //Assign Spinners objects by ID
         Spinner spinnerAdd = findViewById(R.id.spinneradd);
@@ -139,8 +128,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             startActivity(new Intent(MainActivity.this,TestSummaryActivity.class));
         }
         else if (itemID == R.id.menu_about){
-            //navigate to about
-            Toast.makeText(this, "This menu item is not operational at this time", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(MainActivity.this, FAQActivity.class));
         }
         else{
             //No action
