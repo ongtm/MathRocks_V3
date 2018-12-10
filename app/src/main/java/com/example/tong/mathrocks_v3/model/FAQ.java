@@ -12,7 +12,12 @@ public class FAQ {
     private String faqAnswer;
 
     public FAQ(String faqID, String faqQuestion, String faqAnswer){
-        this.faqID = faqID;
+        if(faqID == null){
+            this.faqID = toString().valueOf(System.currentTimeMillis());
+        }
+        else {
+            this.faqID = faqID;
+        }
         this.faqQuestion = faqQuestion;
         this.faqAnswer = faqAnswer;
     }

@@ -15,6 +15,7 @@ public class DBHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db){
         db.execSQL(MathRocksDatabaseTables.SQL_CREATE_MATHTESTS_TABLE);
         db.execSQL(MathRocksDatabaseTables.SQL_CREATE_QUESTIONS_TABLE);
+        db.execSQL(MathRocksDatabaseTables.SQL_CREATE_FAQ_TABLE);
     }
 
     @Override
@@ -22,6 +23,7 @@ public class DBHelper extends SQLiteOpenHelper{
 
         db.execSQL(MathRocksDatabaseTables.SQL_DELETE_MATHTESTS_TABLE);
         db.execSQL(MathRocksDatabaseTables.SQL_DELETE_QUESTIONS_TABLE);
+        db.execSQL(MathRocksDatabaseTables.SQL_DELETE_FAQ_TABLE);
 
         onCreate(db);
     }

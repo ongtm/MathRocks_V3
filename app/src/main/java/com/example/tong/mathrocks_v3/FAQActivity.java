@@ -11,8 +11,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.tong.mathrocks_v3.custom_adapters.FAQRecyclerAdapter;
 import com.example.tong.mathrocks_v3.custom_adapters.MyRecyclerViewAdapter;
 import com.example.tong.mathrocks_v3.database.DataSource;
+import com.example.tong.mathrocks_v3.model.FAQ;
 
 
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class FAQActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
 
     DataSource mDataSource;
-    List<MathTest> mFAQ = new ArrayList<>();
+    List<FAQ> mFAQ = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,23 +40,20 @@ public class FAQActivity extends AppCompatActivity {
         mDataSource.open();
 
 
-
         //Transfer test info from database to array for recycler view
-        if(mDataSource.isEmpty("tblFAQ")== true) {
-            mDataSource.loadFAQTable;
+        if (mDataSource.isEmpty("tblFAQ") == true) {
+            mDataSource.loadFAQTable();
         }
-            mFAQ = mDataSource.getFAQ();
+        mFAQ = mDataSource.getFAQs();
 
-            //Get items for recyclerview
-            FAQRecyclerAdapter adapter = new FAQRecyclerAdapter(this,mFAQ);
-            mRecyclerView = findViewById(R.id.test_recycler_view);
-            mLayoutManager = new LinearLayoutManager(this);
-            mRecyclerView.setLayoutManager(mLayoutManager);
-            mRecyclerView.setAdapter(adapter);
-        }
-
-
+        //Get items for recyclerview
+        FAQRecyclerAdapter adapter = new FAQRecyclerAdapter(this, mFAQ);
+        mRecyclerView = findViewById(R.id.faq_recycler_view);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(adapter);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

@@ -40,12 +40,12 @@
     <string name="question_number">Question</string>
     <string name="question">Question #</string>
 
-    <string name="question1">How many questions are there in test?</string>
+    <string name="question1">How many questions are there in a test?</string>
     <string name="question2">How do I get a hint for a question?</string>
     <string name="question3">What do the levels for the tests represent?</string>
-    <string name="question4">"How can I see the tests I have taken?</string>
+    <string name="question4">How can I see the tests I have taken?</string>
     <string name="question5">How do I view the questions for the tests I have taken?</string>
-    <string name="question6">I retake a test?</string>
+    <string name="question6">Can I retake a test?</string>
     <string name="question7">How do I delete a test?</string>
 
     <string name="answer1">There are ten (10) questions in each test.</string>

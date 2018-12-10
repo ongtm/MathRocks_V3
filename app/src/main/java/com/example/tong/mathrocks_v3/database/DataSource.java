@@ -9,10 +9,13 @@ import android.content.ContentValues;
 import android.widget.Toast;
 
 
+import com.example.tong.mathrocks_v3.R;
+import com.example.tong.mathrocks_v3.model.FAQ;
 import com.example.tong.mathrocks_v3.model.MathTest;
 import com.example.tong.mathrocks_v3.model.Question;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.tong.mathrocks_v3.database.MathRocksDatabaseTables.TABLE_QUESTIONS;
 
@@ -133,4 +136,64 @@ public class DataSource {
         return questions;
     }
 
+    public void loadFAQTable(){
+
+        mDatabase = mDbHelper.getWritableDatabase();
+
+
+      FAQ faq1 = new FAQ(null,"How many questions are there in a test?","There are ten (10) questions in each test.");
+      FAQ faq2 = new FAQ(null,"How do I get a hint for a question?","Tap on the Get Hint button in the bottom left corner to view the hints for each question.");
+      FAQ faq3 = new FAQ(null,"What do the levels for the tests represent?","The levels represent the difficulty of each test.  " +
+              "Level 1  questions are for the basic 0-12 addition/subtraction/multiplication/division.  " +
+                      "Level 2 covers 0 - 20. " +
+                      "Level 3 covers 0 - 100. " +
+                      "Level 4 allows for the numbers being computed to be different lengths. " +
+                      "The first number covers the range 0-1000 and the second number covers the range 0 - 100." +
+                      "Level 5 covers 0 - 1000 ");
+      FAQ faq4 = new FAQ(null,"How can I see the tests I have taken?","You can view the tests that you have taken by tapping on the menu bar and selecting Score Summary");
+      FAQ faq5 = new FAQ(null,"How do I view the questions for the tests I have taken?","To view the questions for a taken test, tap on the Chart icon next to the test on the Test Summary screen.");
+      FAQ faq6 = new FAQ(null,"Can I retake a test?","You can not retake tests at this time.");
+      FAQ faq7 = new FAQ(null,"How do I delete a test?","A test can be deleted by taping on the Trash can icon next to the test on the Test Summary screen.");
+
+      List<FAQ> allFAQs = new ArrayList<>();
+      allFAQs.add(faq1);
+      allFAQs.add(faq2);
+      allFAQs.add(faq3);
+      allFAQs.add(faq4);
+      allFAQs.add(faq5);
+      allFAQs.add(faq6);
+      allFAQs.add(faq7);
+
+
+      for(int i = 0 ; i < allFAQs.size(); i++){
+        ContentValues contentValues;
+        contentValues= allFAQs.get(i).faqToValues();
+        onInsert(contentValues,"tblFAQ");
+      }
+
+
+    }
+
+    public List<FAQ> getFAQs(){
+        mDatabase = mDbHelper.getWritableDatabase();
+
+        String[] cols = {"tblFAQ.column_faqID, tblFAQ.column_faqQuestion, tblFAQ.column_faqAnswer"};
+        Cursor cursor = mDatabase.query("tblFAQ",cols,null,null,null,null,null,null);
+
+        ArrayList<FAQ> allFAQ = new ArrayList<>();
+
+        if(cursor != null && cursor.getCount()>0){
+            cursor.moveToFirst();
+
+            do{
+                FAQ faq = new FAQ(cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_FAQ_FAQID)),
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_FAQ_FAQQUESTION)),
+                        cursor.getString(cursor.getColumnIndex(MathRocksDatabaseTables.COLUMN_FAQ_FAQANSWER)));
+
+                allFAQ.add(faq);
+            }while (cursor.moveToNext());
+
+        }
+        return allFAQ;
+    }
 }

@@ -43,7 +43,23 @@ public class FAQRecyclerAdapter extends RecyclerView.Adapter <FAQRecyclerAdapter
     public FAQRecyclerAdapter.FAQRecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
-        View faqView = inflater.inflate(R.layout.activity_faq_recyclerview)
+        View faqView = inflater.inflate(R.layout.activity_faq,parent,false);
 
+        FAQRecyclerViewHolder faqRecyclerViewHolder = new FAQRecyclerViewHolder(faqView);
+
+        return faqRecyclerViewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder (FAQRecyclerViewHolder holder, int position){
+        FAQ myFAQ = mFaq.get(position);
+
+        holder.mFaqID.setText(myFAQ.getFaqID());
+        holder.mFaqQuestion.setText(myFAQ.getFaqQuestion());;
+        holder.mFaqAnswer.setText(myFAQ.getFaqAnswer());
+    }
+
+    public int getItemCount(){
+        return mFaq.size();
     }
 }
