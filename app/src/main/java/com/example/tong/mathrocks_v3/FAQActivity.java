@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
+
 
 import com.example.tong.mathrocks_v3.custom_adapters.FAQRecyclerAdapter;
 import com.example.tong.mathrocks_v3.custom_adapters.MyRecyclerViewAdapter;

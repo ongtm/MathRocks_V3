@@ -8,9 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.example.tong.mathrocks_v3.custom_adapters.MyRecyclerViewAdapter;
 import com.example.tong.mathrocks_v3.database.DataSource;
@@ -43,11 +41,11 @@ public class TestSummaryActivity extends AppCompatActivity {
             mMathTests = mDataSource.getMathTests();
 
             //Get items for recyclerview
-            MyRecyclerViewAdapter adapter = new MyRecyclerViewAdapter(this,mMathTests);
+            mAdapter = new MyRecyclerViewAdapter(this,mMathTests);
             mRecyclerView = findViewById(R.id.test_recycler_view);
             mLayoutManager = new LinearLayoutManager(this);
             mRecyclerView.setLayoutManager(mLayoutManager);
-            mRecyclerView.setAdapter(adapter);
+            mRecyclerView.setAdapter(mAdapter);
         }
     }
     @Override

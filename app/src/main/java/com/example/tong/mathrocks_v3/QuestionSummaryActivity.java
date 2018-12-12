@@ -1,20 +1,15 @@
 package com.example.tong.mathrocks_v3;
 
-import android.database.Cursor;
+
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
-
-import com.example.tong.mathrocks_v3.custom_adapters.MyRecyclerViewAdapter;
 import com.example.tong.mathrocks_v3.custom_adapters.QuestionRecyclerAdapter;
 import com.example.tong.mathrocks_v3.database.DataSource;
-import com.example.tong.mathrocks_v3.database.MathRocksDatabaseTables;
 import com.example.tong.mathrocks_v3.model.Question;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +50,6 @@ public class QuestionSummaryActivity extends AppCompatActivity {
             mRecyclerView.setAdapter(adapter);
         }
         //String tb = testID[0];
-        Toast.makeText(this,"Number of items in list " + mQuestions.size() + " Long ID value " + testID,Toast.LENGTH_SHORT).show();
+
     }
 }

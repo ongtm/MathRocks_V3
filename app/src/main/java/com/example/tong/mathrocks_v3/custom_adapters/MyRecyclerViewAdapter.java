@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.tong.mathrocks_v3.QuestionSummaryActivity;
 import com.example.tong.mathrocks_v3.R;
+import com.example.tong.mathrocks_v3.database.DataSource;
 import com.example.tong.mathrocks_v3.model.MathTest;
 
 import java.util.List;
@@ -70,7 +71,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
         return myRecyclerViewHolder;
     }
-
     @Override
     public void onBindViewHolder(MyRecyclerViewHolder holder, final int position){
 
@@ -88,6 +88,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                    DataSource mDataSource = new DataSource(mContext);
+                    mDataSource.open();
+
+                    String testID = mMathTest.get(position).getTestID();
+                    mDataSource.deleteTest(testID);
+
+                    mMathTest.remove(mMathTest.get(position));
+                    notifyDataSetChanged();
 
             }
         });

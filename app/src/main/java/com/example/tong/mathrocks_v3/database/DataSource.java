@@ -6,7 +6,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.content.ContentValues;
-import android.widget.Toast;
+
 
 
 import com.example.tong.mathrocks_v3.R;
@@ -195,5 +195,11 @@ public class DataSource {
 
         }
         return allFAQ;
+    }
+
+    public void deleteTest(String testID){
+        mDatabase = mDbHelper.getWritableDatabase();
+        mDatabase.delete("tblMathTests","column_testID=?", new String[] {testID});
+
     }
 }
